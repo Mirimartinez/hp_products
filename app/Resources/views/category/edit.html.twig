@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <header id="header" class="d-flex align-items-center">
+            <div class="container d-flex align-items-center justify-content-between">
+
+            <div class="logo">
+                <h1 class="text-light"><a href="{{ path('homepage')}}"><span>The Wiz Store</span></a></h1>
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                <li><a class="nav-link scrollto" href="{{ path('cms_page_index')}}">Pages</a></li>
+                <li><a class="nav-link scrollto" href="{{ path('cms_category_index')}}">Categories</a></li>
+                <li><a class="nav-link scrollto" href="{{ path('cms_user_index')}}">Users</a></li>
+                <li><a class="nav-link scrollto" href="{{ path('homepage')}}">Log out</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+
+            </div>
+        </header>
+
+<div class="login-box1 text-light">
+	<div class="row">
+		<div class="col-md-10">
+			<h1>Let's update!</h1>
+		</div>
+	</div>
+    
+
+    {{ form_start(edit_form, {'attr': {'class': 'form-horizontal'} }) }}
+        <div class="form-group">
+			<label class="col-md-4 control-label pt-3">Name</label>
+			<div class="">
+			  {{ form_widget(edit_form.name, {'attr': {'class': 'form-control'}}) }}
+			</div>
+		</div>
+		<div class="d-flex flex-row justify-content-evenly my-3">
+			<div class="">
+			  <button type="submit" class="btn btn-primary">Update</button>
+			</div>
+			<div class="">
+			{{ form_start(delete_form) }}
+                <button type="submit" class="btn btn-danger">Delete</button>
+            {{ form_end(delete_form) }}
+			</div>
+		</div>
+			<div class="d-flex justify-content-end">
+			  <a class="btn btn-default text-light" href="{{ path('cms_category_index') }}"  role="button">Back to the list</a>
+			</div>
+    {{ form_end(edit_form) }}
+			
+</div>
+{% endblock %}

@@ -1,0 +1,112 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{# Header #} 
+        <header id="header" class="d-flex align-items-center">
+            <div class="container d-flex align-items-center justify-content-between">
+
+            <div class="logo">
+                <h1 class="text-light"><a href="{{ path('homepage')}}"><span>The Wiz Store</span></a></h1>
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                <li><a class="nav-link scrollto" href="{{ path('login')}}">Log in</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+
+            </div>
+        </header>
+{# End Header #} 
+{# Hero Section #}
+<section id="hero">
+    <div class="hero-container">
+      <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+        <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+        <div class="carousel-inner" role="listbox">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active" style="background-image: url({{ asset('img/hero1.jpg') }})">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>The Wiz Store</span></h2>
+                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item" style="background-image: url({{ asset('img/hero2.jpg') }});">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>The Wiz Store</h2>
+                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item" style="background-image: url({{ asset('img/hero3.jpg') }});">
+            <div class="carousel-container">
+              <div class="carousel-content">
+                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>The Wiz Store</h2>
+                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bi bi-chevron-double-left" aria-hidden="true"></span>
+        </a>
+
+        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+          <span class="carousel-control-next-icon bi bi-chevron-double-right" aria-hidden="true"></span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+{# End Hero Section #}
+
+
+<section class="more-services section-bg">
+	<div class="container" >
+
+
+		<div >
+		<label class="form-label me-2">Search something...</label>
+			<input onkeyup="search_now($('search').val());" type="text" name="buscar" id="buscar">
+		<button onclick="search_now($('#search').val());" class="btn ms-2">Go!</button>
+		</div>
+
+		
+
+		<div class="d-flex justify-content-center">
+			<h2>Our products</h2>
+		</div>
+			<div class="d-flex flex-row flex-wrap justify-content-between">
+			{% for page in pages %}
+				<div class="card my-3 rounded" style="width: 18rem; height:23rem;">
+  					<img class="card-img-top rounded-top" src="{{ asset('img/hero2.jpg') }}"  alt="Card image cap" style="height:13rem;">
+					<div class="card-body">
+						<h5 class="card-title"><a href="">{{ page.name }}</a></h5>
+						<p class="card-text">({{ page.category}})</p>
+						<p class="card-text">{{ page.content|slice(0,200)}}</p>
+						<!-- <a href="#" class="btn btn-primary">Add to cart</a> -->
+  					</div>
+				</div>
+        	{% endfor %}
+      	</div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}

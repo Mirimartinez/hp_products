@@ -1,0 +1,19 @@
+        <header id="header" class="d-flex align-items-center">
+            <div class="container d-flex align-items-center justify-content-between">
+
+            <div class="logo">
+                <h1 class="text-light"><a href="{{ path('homepage')}}"><span>The Wiz Store</span></a></h1>
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                <li><a class="nav-link scrollto" href="{{ path('cms_page_index')}}">Pages</a></li>
+                <li><a class="nav-link scrollto" href="{{ path('cms_category_index')}}">Categories</a></li>
+                <li><a class="nav-link scrollto" href="{{ path('cms_user_index')}}">Users</a></li>
+                <li><a class="nav-link scrollto" href="{{ path('homepage')}}">Log out</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+
+            </div>
+        </header>
